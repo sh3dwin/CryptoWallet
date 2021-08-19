@@ -28,13 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.loginLabel = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.usernameTextBox = new System.Windows.Forms.TextBox();
+            this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.usernameLabel = new System.Windows.Forms.Label();
             this.passwordLabel = new System.Windows.Forms.Label();
             this.logInButton = new System.Windows.Forms.Button();
             this.accountCreationLinkLabel = new System.Windows.Forms.LinkLabel();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // loginLabel
@@ -49,21 +52,21 @@
             this.loginLabel.TabIndex = 0;
             this.loginLabel.Text = "CryptoWallet";
             // 
-            // textBox1
+            // usernameTextBox
             // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox1.Location = new System.Drawing.Point(271, 162);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(265, 20);
-            this.textBox1.TabIndex = 1;
+            this.usernameTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.usernameTextBox.Location = new System.Drawing.Point(271, 162);
+            this.usernameTextBox.Name = "usernameTextBox";
+            this.usernameTextBox.Size = new System.Drawing.Size(265, 20);
+            this.usernameTextBox.TabIndex = 1;
             // 
-            // textBox2
+            // passwordTextBox
             // 
-            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox2.Location = new System.Drawing.Point(271, 201);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(265, 20);
-            this.textBox2.TabIndex = 2;
+            this.passwordTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.passwordTextBox.Location = new System.Drawing.Point(271, 201);
+            this.passwordTextBox.Name = "passwordTextBox";
+            this.passwordTextBox.Size = new System.Drawing.Size(265, 20);
+            this.passwordTextBox.TabIndex = 2;
             // 
             // usernameLabel
             // 
@@ -94,6 +97,7 @@
             this.logInButton.TabIndex = 5;
             this.logInButton.Text = "LOG IN";
             this.logInButton.UseVisualStyleBackColor = true;
+            this.logInButton.Click += new System.EventHandler(this.logInButton_Click);
             // 
             // accountCreationLinkLabel
             // 
@@ -107,6 +111,10 @@
             this.accountCreationLinkLabel.Text = "Create an Account";
             this.accountCreationLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.accountCreationLinkLabel_LinkClicked);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // CryptoWallet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -117,11 +125,12 @@
             this.Controls.Add(this.logInButton);
             this.Controls.Add(this.passwordLabel);
             this.Controls.Add(this.usernameLabel);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.passwordTextBox);
+            this.Controls.Add(this.usernameTextBox);
             this.Controls.Add(this.loginLabel);
             this.Name = "CryptoWallet";
             this.Text = "CryptoWallet";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -130,12 +139,13 @@
         #endregion
 
         private System.Windows.Forms.Label loginLabel;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox usernameTextBox;
+        private System.Windows.Forms.TextBox passwordTextBox;
         private System.Windows.Forms.Label usernameLabel;
         private System.Windows.Forms.Label passwordLabel;
         private System.Windows.Forms.Button logInButton;
         private System.Windows.Forms.LinkLabel accountCreationLinkLabel;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
 

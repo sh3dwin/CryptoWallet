@@ -28,14 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.regUsernameLabel = new System.Windows.Forms.Label();
             this.regPasswordLabel = new System.Windows.Forms.Label();
             this.regConfPasswordLabel = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.usernameTextBox = new System.Windows.Forms.TextBox();
+            this.passTextBox = new System.Windows.Forms.TextBox();
+            this.confPassTextBox = new System.Windows.Forms.TextBox();
             this.registerButton = new System.Windows.Forms.Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // regUsernameLabel
@@ -65,26 +68,26 @@
             this.regConfPasswordLabel.TabIndex = 2;
             this.regConfPasswordLabel.Text = "Confirm password:";
             // 
-            // textBox1
+            // usernameTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(41, 38);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(161, 20);
-            this.textBox1.TabIndex = 3;
+            this.usernameTextBox.Location = new System.Drawing.Point(41, 38);
+            this.usernameTextBox.Name = "usernameTextBox";
+            this.usernameTextBox.Size = new System.Drawing.Size(161, 20);
+            this.usernameTextBox.TabIndex = 3;
             // 
-            // textBox2
+            // passTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(41, 103);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(161, 20);
-            this.textBox2.TabIndex = 4;
+            this.passTextBox.Location = new System.Drawing.Point(41, 103);
+            this.passTextBox.Name = "passTextBox";
+            this.passTextBox.Size = new System.Drawing.Size(161, 20);
+            this.passTextBox.TabIndex = 4;
             // 
-            // textBox3
+            // confPassTextBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(41, 150);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(161, 20);
-            this.textBox3.TabIndex = 5;
+            this.confPassTextBox.Location = new System.Drawing.Point(41, 150);
+            this.confPassTextBox.Name = "confPassTextBox";
+            this.confPassTextBox.Size = new System.Drawing.Size(161, 20);
+            this.confPassTextBox.TabIndex = 5;
             // 
             // registerButton
             // 
@@ -94,6 +97,7 @@
             this.registerButton.TabIndex = 6;
             this.registerButton.Text = "Create Account";
             this.registerButton.UseVisualStyleBackColor = true;
+            this.registerButton.Click += new System.EventHandler(this.registerButton_Click);
             // 
             // linkLabel1
             // 
@@ -106,6 +110,10 @@
             this.linkLabel1.Text = "Cancel";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // UserRegistrationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -113,14 +121,15 @@
             this.ClientSize = new System.Drawing.Size(246, 244);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.registerButton);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.confPassTextBox);
+            this.Controls.Add(this.passTextBox);
+            this.Controls.Add(this.usernameTextBox);
             this.Controls.Add(this.regConfPasswordLabel);
             this.Controls.Add(this.regPasswordLabel);
             this.Controls.Add(this.regUsernameLabel);
             this.Name = "UserRegistrationForm";
             this.Text = "Registration Form";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -131,10 +140,11 @@
         private System.Windows.Forms.Label regUsernameLabel;
         private System.Windows.Forms.Label regPasswordLabel;
         private System.Windows.Forms.Label regConfPasswordLabel;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox usernameTextBox;
+        private System.Windows.Forms.TextBox passTextBox;
+        private System.Windows.Forms.TextBox confPassTextBox;
         private System.Windows.Forms.Button registerButton;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

@@ -53,6 +53,8 @@
       <DependentUpon>CryptoWallet.cs</DependentUpon>
     </Compile>
     <Compile Include="DisplayObserver.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="UserDoc.cs" />
     <Compile Include="UserRegistrationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,6 +63,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Wallet.cs" />
     <EmbeddedResource Include="CryptoWallet.resx">
       <DependentUpon>CryptoWallet.cs</DependentUpon>
     </EmbeddedResource>
