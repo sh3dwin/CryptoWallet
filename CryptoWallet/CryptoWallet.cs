@@ -33,7 +33,9 @@ namespace CryptoWallet
                 User currentUser = users.logInUser(usernameTextBox.Text, passwordTextBox.Text);
                 if (currentUser != null)
                 {
-                    Close();
+                    CryptoWalletLoggedIn form = new CryptoWalletLoggedIn(this, currentUser);
+                    form.Show();
+                    this.Hide();
                 }
                 else
                 {

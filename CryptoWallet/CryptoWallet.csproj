@@ -52,6 +52,12 @@
     <Compile Include="CryptoWallet.Designer.cs">
       <DependentUpon>CryptoWallet.cs</DependentUpon>
     </Compile>
+    <Compile Include="CryptoWalletLoggedIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CryptoWalletLoggedIn.Designer.cs">
+      <DependentUpon>CryptoWalletLoggedIn.cs</DependentUpon>
+    </Compile>
     <Compile Include="DisplayObserver.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserDoc.cs" />
@@ -66,6 +72,9 @@
     <Compile Include="Wallet.cs" />
     <EmbeddedResource Include="CryptoWallet.resx">
       <DependentUpon>CryptoWallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CryptoWalletLoggedIn.resx">
+      <DependentUpon>CryptoWalletLoggedIn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
