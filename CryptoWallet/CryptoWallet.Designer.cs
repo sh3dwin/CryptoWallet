@@ -39,6 +39,7 @@
             // 
             // loginLabel
             // 
+            this.loginLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.loginLabel.AutoSize = true;
             this.loginLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loginLabel.ForeColor = System.Drawing.Color.Purple;
@@ -50,6 +51,7 @@
             // 
             // textBox1
             // 
+            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox1.Location = new System.Drawing.Point(271, 162);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(265, 20);
@@ -57,6 +59,7 @@
             // 
             // textBox2
             // 
+            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox2.Location = new System.Drawing.Point(271, 201);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(265, 20);
@@ -64,6 +67,7 @@
             // 
             // usernameLabel
             // 
+            this.usernameLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.usernameLabel.AutoSize = true;
             this.usernameLabel.Location = new System.Drawing.Point(268, 146);
             this.usernameLabel.Name = "usernameLabel";
@@ -73,6 +77,7 @@
             // 
             // passwordLabel
             // 
+            this.passwordLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.passwordLabel.AutoSize = true;
             this.passwordLabel.Location = new System.Drawing.Point(268, 185);
             this.passwordLabel.Name = "passwordLabel";
@@ -82,6 +87,7 @@
             // 
             // logInButton
             // 
+            this.logInButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.logInButton.Location = new System.Drawing.Point(271, 250);
             this.logInButton.Name = "logInButton";
             this.logInButton.Size = new System.Drawing.Size(265, 26);
@@ -91,6 +97,7 @@
             // 
             // accountCreationLinkLabel
             // 
+            this.accountCreationLinkLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.accountCreationLinkLabel.AutoSize = true;
             this.accountCreationLinkLabel.Location = new System.Drawing.Point(359, 289);
             this.accountCreationLinkLabel.Name = "accountCreationLinkLabel";
@@ -98,6 +105,7 @@
             this.accountCreationLinkLabel.TabIndex = 6;
             this.accountCreationLinkLabel.TabStop = true;
             this.accountCreationLinkLabel.Text = "Create an Account";
+            this.accountCreationLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.accountCreationLinkLabel_LinkClicked);
             // 
             // CryptoWallet
             // 

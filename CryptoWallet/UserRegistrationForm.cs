@@ -10,17 +10,16 @@ using System.Windows.Forms;
 
 namespace CryptoWallet
 {
-    public partial class CryptoWallet : Form
+    public partial class UserRegistrationForm : Form
     {
-        public CryptoWallet()
+        public UserRegistrationForm()
         {
             InitializeComponent();
         }
 
-        private void accountCreationLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            UserRegistrationForm form = new UserRegistrationForm();
-            form.Show();
+            this.Close();
         }
     }
 }
