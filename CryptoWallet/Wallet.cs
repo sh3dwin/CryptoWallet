@@ -11,7 +11,6 @@ namespace CryptoWallet
         private double btcAmount;
         private double ethAmount;
         private double adaAmount;
-        private double usdtAmount;
         private double dogeAmount;
         private double solAmount;
         private double bchAmount;
@@ -25,7 +24,6 @@ namespace CryptoWallet
             btcAmount  = 0.0f;
             ethAmount  = 0.0f;
             adaAmount  = 0.0f;
-            usdtAmount = 0.0f;
             dogeAmount = 0.0f;
             solAmount  = 0.0f;
             bchAmount  = 0.0f;
@@ -47,7 +45,6 @@ namespace CryptoWallet
                 case "btc":  return btcAmount;
                 case "eth":  return ethAmount;
                 case "ada":  return adaAmount;
-                case "usdt": return usdtAmount;
                 case "doge": return dogeAmount;
                 case "sol":  return solAmount;
                 case "bch":  return bchAmount;
@@ -63,7 +60,6 @@ namespace CryptoWallet
                 case "btc":  { btcAmount += amount;break; }
                 case "eth":  { ethAmount += amount; break;}
                 case "ada":  { adaAmount += amount; break;}
-                case "usdt": { usdtAmount += amount; break; }
                 case "doge": { dogeAmount += amount; break; }
                 case "sol":  { solAmount += amount; break; }
                 case "bch":  { bchAmount += amount; break; }

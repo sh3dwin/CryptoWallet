@@ -13,9 +13,12 @@ namespace CryptoWallet
     public partial class CryptoWallet : Form
     {
         public UserDoc users;
+        public List<CryptoValue> values;
         public CryptoWallet()
         {
             users = new UserDoc();
+            values = new List<CryptoValue>();
+            loadData();
             InitializeComponent();
         }
 
@@ -46,6 +49,16 @@ namespace CryptoWallet
             {
                 errorProvider1.SetError(usernameTextBox, "Username not found!");
             }
+        }
+        public void loadData()
+        {
+            this.values.Add(new CryptoValue("BTC"));
+            this.values.Add(new CryptoValue("ETH"));
+            this.values.Add(new CryptoValue("ADA"));
+            this.values.Add(new CryptoValue("DOGE"));
+            this.values.Add(new CryptoValue("SOL"));
+            this.values.Add(new CryptoValue("BCH"));
+            this.values.Add(new CryptoValue("VET"));
         }
     }
 }
