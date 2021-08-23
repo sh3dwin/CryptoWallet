@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.priceGraph = new System.Windows.Forms.PictureBox();
             this.btcButton = new System.Windows.Forms.Button();
             this.ethButton = new System.Windows.Forms.Button();
@@ -43,26 +42,20 @@
             this.loggedInLabel = new System.Windows.Forms.Label();
             this.highestValueLabel = new System.Windows.Forms.Label();
             this.lowestValueLabel = new System.Windows.Forms.Label();
+            this.transactionHistory = new System.Windows.Forms.ListBox();
+            this.solButton = new System.Windows.Forms.Button();
+            this.buyButton = new System.Windows.Forms.Button();
+            this.tradeButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.priceGraph)).BeginInit();
             this.SuspendLayout();
-            // 
-            // vScrollBar1
-            // 
-            this.vScrollBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.vScrollBar1.Location = new System.Drawing.Point(784, 0);
-            this.vScrollBar1.Name = "vScrollBar1";
-            this.vScrollBar1.Size = new System.Drawing.Size(17, 451);
-            this.vScrollBar1.TabIndex = 1;
-            this.vScrollBar1.Value = 50;
             // 
             // priceGraph
             // 
             this.priceGraph.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.priceGraph.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.priceGraph.Location = new System.Drawing.Point(246, 85);
+            this.priceGraph.Location = new System.Drawing.Point(254, 85);
             this.priceGraph.Name = "priceGraph";
-            this.priceGraph.Size = new System.Drawing.Size(525, 311);
+            this.priceGraph.Size = new System.Drawing.Size(525, 273);
             this.priceGraph.TabIndex = 2;
             this.priceGraph.TabStop = false;
             this.priceGraph.Paint += new System.Windows.Forms.PaintEventHandler(this.priceGraph_Paint);
@@ -71,7 +64,7 @@
             // 
             this.btcButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btcButton.Enabled = false;
-            this.btcButton.Location = new System.Drawing.Point(245, 62);
+            this.btcButton.Location = new System.Drawing.Point(253, 62);
             this.btcButton.Name = "btcButton";
             this.btcButton.Size = new System.Drawing.Size(62, 23);
             this.btcButton.TabIndex = 3;
@@ -83,7 +76,7 @@
             // ethButton
             // 
             this.ethButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ethButton.Location = new System.Drawing.Point(305, 62);
+            this.ethButton.Location = new System.Drawing.Point(313, 62);
             this.ethButton.Name = "ethButton";
             this.ethButton.Size = new System.Drawing.Size(62, 23);
             this.ethButton.TabIndex = 4;
@@ -95,7 +88,7 @@
             // cardanoButton
             // 
             this.cardanoButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cardanoButton.Location = new System.Drawing.Point(364, 62);
+            this.cardanoButton.Location = new System.Drawing.Point(372, 62);
             this.cardanoButton.Name = "cardanoButton";
             this.cardanoButton.Size = new System.Drawing.Size(62, 23);
             this.cardanoButton.TabIndex = 5;
@@ -107,7 +100,7 @@
             // dogeButton
             // 
             this.dogeButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dogeButton.Location = new System.Drawing.Point(423, 62);
+            this.dogeButton.Location = new System.Drawing.Point(431, 62);
             this.dogeButton.Name = "dogeButton";
             this.dogeButton.Size = new System.Drawing.Size(62, 23);
             this.dogeButton.TabIndex = 6;
@@ -119,7 +112,7 @@
             // bchButton
             // 
             this.bchButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.bchButton.Location = new System.Drawing.Point(483, 62);
+            this.bchButton.Location = new System.Drawing.Point(551, 62);
             this.bchButton.Name = "bchButton";
             this.bchButton.Size = new System.Drawing.Size(62, 23);
             this.bchButton.TabIndex = 7;
@@ -131,7 +124,7 @@
             // vetButton
             // 
             this.vetButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.vetButton.Location = new System.Drawing.Point(543, 62);
+            this.vetButton.Location = new System.Drawing.Point(610, 62);
             this.vetButton.Name = "vetButton";
             this.vetButton.Size = new System.Drawing.Size(62, 23);
             this.vetButton.TabIndex = 8;
@@ -152,7 +145,7 @@
             this.currentValueLabel.AutoSize = true;
             this.currentValueLabel.BackColor = System.Drawing.Color.Transparent;
             this.currentValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.currentValueLabel.Location = new System.Drawing.Point(242, 399);
+            this.currentValueLabel.Location = new System.Drawing.Point(249, 361);
             this.currentValueLabel.Name = "currentValueLabel";
             this.currentValueLabel.Size = new System.Drawing.Size(504, 20);
             this.currentValueLabel.TabIndex = 9;
@@ -162,7 +155,8 @@
             // 
             this.currentUserLabel.AutoSize = true;
             this.currentUserLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.currentUserLabel.Location = new System.Drawing.Point(10, 39);
+            this.currentUserLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.currentUserLabel.Location = new System.Drawing.Point(6, 9);
             this.currentUserLabel.Name = "currentUserLabel";
             this.currentUserLabel.Size = new System.Drawing.Size(168, 31);
             this.currentUserLabel.TabIndex = 10;
@@ -171,19 +165,20 @@
             // loggedInLabel
             // 
             this.loggedInLabel.AutoSize = true;
-            this.loggedInLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loggedInLabel.Location = new System.Drawing.Point(13, 13);
+            this.loggedInLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loggedInLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.loggedInLabel.Location = new System.Drawing.Point(9, 65);
             this.loggedInLabel.Name = "loggedInLabel";
-            this.loggedInLabel.Size = new System.Drawing.Size(89, 16);
+            this.loggedInLabel.Size = new System.Drawing.Size(166, 20);
             this.loggedInLabel.TabIndex = 11;
-            this.loggedInLabel.Text = "Logged in as:";
+            this.loggedInLabel.Text = "Transaction history:";
             // 
             // highestValueLabel
             // 
             this.highestValueLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.highestValueLabel.AutoSize = true;
             this.highestValueLabel.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.highestValueLabel.Location = new System.Drawing.Point(252, 88);
+            this.highestValueLabel.Location = new System.Drawing.Point(260, 88);
             this.highestValueLabel.Name = "highestValueLabel";
             this.highestValueLabel.Size = new System.Drawing.Size(27, 13);
             this.highestValueLabel.TabIndex = 12;
@@ -194,17 +189,62 @@
             this.lowestValueLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lowestValueLabel.AutoSize = true;
             this.lowestValueLabel.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.lowestValueLabel.Location = new System.Drawing.Point(707, 363);
+            this.lowestValueLabel.Location = new System.Drawing.Point(672, 316);
             this.lowestValueLabel.Name = "lowestValueLabel";
             this.lowestValueLabel.Size = new System.Drawing.Size(23, 13);
             this.lowestValueLabel.TabIndex = 13;
             this.lowestValueLabel.Text = "low";
             // 
+            // transactionHistory
+            // 
+            this.transactionHistory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.transactionHistory.FormattingEnabled = true;
+            this.transactionHistory.HorizontalScrollbar = true;
+            this.transactionHistory.Location = new System.Drawing.Point(12, 85);
+            this.transactionHistory.Name = "transactionHistory";
+            this.transactionHistory.Size = new System.Drawing.Size(224, 342);
+            this.transactionHistory.TabIndex = 14;
+            // 
+            // solButton
+            // 
+            this.solButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.solButton.Location = new System.Drawing.Point(491, 62);
+            this.solButton.Name = "solButton";
+            this.solButton.Size = new System.Drawing.Size(62, 23);
+            this.solButton.TabIndex = 15;
+            this.solButton.TabStop = false;
+            this.solButton.Text = "SOL";
+            this.solButton.UseVisualStyleBackColor = true;
+            this.solButton.Click += new System.EventHandler(this.solButton_Click);
+            // 
+            // buyButton
+            // 
+            this.buyButton.Location = new System.Drawing.Point(253, 385);
+            this.buyButton.Name = "buyButton";
+            this.buyButton.Size = new System.Drawing.Size(94, 42);
+            this.buyButton.TabIndex = 16;
+            this.buyButton.Text = "Buy Crypto";
+            this.buyButton.UseVisualStyleBackColor = true;
+            // 
+            // tradeButton
+            // 
+            this.tradeButton.Location = new System.Drawing.Point(372, 385);
+            this.tradeButton.Name = "tradeButton";
+            this.tradeButton.Size = new System.Drawing.Size(94, 42);
+            this.tradeButton.TabIndex = 18;
+            this.tradeButton.Text = "Trade Crypto";
+            this.tradeButton.UseVisualStyleBackColor = true;
+            // 
             // CryptoWalletLoggedIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.tradeButton);
+            this.Controls.Add(this.buyButton);
+            this.Controls.Add(this.solButton);
+            this.Controls.Add(this.transactionHistory);
             this.Controls.Add(this.lowestValueLabel);
             this.Controls.Add(this.highestValueLabel);
             this.Controls.Add(this.loggedInLabel);
@@ -217,7 +257,6 @@
             this.Controls.Add(this.ethButton);
             this.Controls.Add(this.btcButton);
             this.Controls.Add(this.priceGraph);
-            this.Controls.Add(this.vScrollBar1);
             this.Name = "CryptoWalletLoggedIn";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Text = "CryptoWallet";
@@ -229,7 +268,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.VScrollBar vScrollBar1;
         private System.Windows.Forms.PictureBox priceGraph;
         private System.Windows.Forms.Button btcButton;
         private System.Windows.Forms.Button ethButton;
@@ -243,5 +281,9 @@
         private System.Windows.Forms.Label loggedInLabel;
         private System.Windows.Forms.Label highestValueLabel;
         private System.Windows.Forms.Label lowestValueLabel;
+        private System.Windows.Forms.ListBox transactionHistory;
+        private System.Windows.Forms.Button solButton;
+        private System.Windows.Forms.Button buyButton;
+        private System.Windows.Forms.Button tradeButton;
     }
 }

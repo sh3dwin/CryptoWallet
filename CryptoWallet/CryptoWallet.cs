@@ -30,6 +30,7 @@ namespace CryptoWallet
 
         private void logInButton_Click(object sender, EventArgs e)
         {
+            this.users.loadData();
             errorProvider1.Clear();
             if (users.userExists(usernameTextBox.Text))
             {
@@ -52,6 +53,7 @@ namespace CryptoWallet
         }
         public void loadData()
         {
+            this.users.loadData();
             this.values.Add(new CryptoValue("BTC"));
             this.values.Add(new CryptoValue("ETH"));
             this.values.Add(new CryptoValue("ADA"));

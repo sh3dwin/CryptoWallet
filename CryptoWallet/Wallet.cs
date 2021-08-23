@@ -8,13 +8,13 @@ namespace CryptoWallet
 {
     public class Wallet
     {
-        private double btcAmount;
-        private double ethAmount;
-        private double adaAmount;
-        private double dogeAmount;
-        private double solAmount;
-        private double bchAmount;
-        private double vetAmount;
+        public float btcAmount { get; private set; }
+        public float ethAmount { get; private set; }
+        public float adaAmount { get; private set; }
+        public float dogeAmount { get; private set; }
+        public float solAmount { get; private set; }
+        public float bchAmount { get; private set; }
+        public float vetAmount { get; private set; }
 
         private List<String> transactionHistory;
 
@@ -37,23 +37,7 @@ namespace CryptoWallet
             return "Wallet to STRING\n";
         }
 
-
-        public double getAmount(String code)
-        {
-            switch (code)
-            {
-                case "btc":  return btcAmount;
-                case "eth":  return ethAmount;
-                case "ada":  return adaAmount;
-                case "doge": return dogeAmount;
-                case "sol":  return solAmount;
-                case "bch":  return bchAmount;
-                case "vet":  return vetAmount;
-                default: return -1;
-            }
-        }
-
-        public bool addAmount(String code, double amount)
+        public bool addAmount(String code, float amount)
         { 
             switch (code)
             {
@@ -69,6 +53,26 @@ namespace CryptoWallet
 
             transactionHistory.Add(amount.ToString() + " " + code + " deposited into the wallet at " + DateTime.Now.ToString("dd-MM-yyyy") + ", Time:" + DateTime.Now.ToString("HH:mm:ss"));
             return true;  
+        }
+
+        public void load(String balance)
+        {
+            /*String[] amounts = balance.Split(' ');
+            float amount = 0;
+            float.TryParse(amounts[0], out amount);
+            btcAmount = amount;
+            float.TryParse(amounts[1], out amount);
+            ethAmount = amount;
+            float.TryParse(amounts[2], out amount);
+            adaAmount = amount;
+            float.TryParse(amounts[3], out amount);
+            dogeAmount = amount;
+            float.TryParse(amounts[4], out amount);
+            solAmount = amount;
+            float.TryParse(amounts[5], out amount);
+            bchAmount = amount;
+            float.TryParse(amounts[6], out amount);
+            vetAmount = amount;*/
         }
 
 

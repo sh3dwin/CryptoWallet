@@ -70,6 +70,7 @@
             // 
             // usernameTextBox
             // 
+            this.usernameTextBox.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.usernameTextBox.Location = new System.Drawing.Point(41, 38);
             this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.Size = new System.Drawing.Size(161, 20);
@@ -77,26 +78,32 @@
             // 
             // passTextBox
             // 
+            this.passTextBox.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.passTextBox.Location = new System.Drawing.Point(41, 103);
             this.passTextBox.Name = "passTextBox";
             this.passTextBox.Size = new System.Drawing.Size(161, 20);
             this.passTextBox.TabIndex = 4;
+            this.passTextBox.UseSystemPasswordChar = true;
             // 
             // confPassTextBox
             // 
+            this.confPassTextBox.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.confPassTextBox.Location = new System.Drawing.Point(41, 150);
             this.confPassTextBox.Name = "confPassTextBox";
             this.confPassTextBox.Size = new System.Drawing.Size(161, 20);
             this.confPassTextBox.TabIndex = 5;
+            this.confPassTextBox.UseSystemPasswordChar = true;
             // 
             // registerButton
             // 
+            this.registerButton.BackColor = System.Drawing.SystemColors.Highlight;
+            this.registerButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.registerButton.Location = new System.Drawing.Point(41, 186);
             this.registerButton.Name = "registerButton";
             this.registerButton.Size = new System.Drawing.Size(161, 23);
             this.registerButton.TabIndex = 6;
             this.registerButton.Text = "Create Account";
-            this.registerButton.UseVisualStyleBackColor = true;
+            this.registerButton.UseVisualStyleBackColor = false;
             this.registerButton.Click += new System.EventHandler(this.registerButton_Click);
             // 
             // linkLabel1
@@ -118,6 +125,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(246, 244);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.registerButton);

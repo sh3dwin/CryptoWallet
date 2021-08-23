@@ -24,7 +24,15 @@ namespace CryptoWallet
             }
             return false;
         }
-        public void addUser(String username, String password)
+        public async void addUser(String username, String password)
+        {
+            this.users.Add(new User(username, password));
+            System.IO.StreamWriter file = new System.IO.StreamWriter("../data/userData.txt", append: true);
+            await file.WriteLineAsync(username + " " + password);
+            file.Close();
+        }
+
+        public void loadUser(String username, String password)
         {
             this.users.Add(new User(username, password));
         }
@@ -37,6 +45,15 @@ namespace CryptoWallet
                     return user;
             }
             return null;
+        }
+
+        public void loadData()
+        {
+            String[] users = System.IO.File.ReadAllLines("../data/userData.txt");
+            foreach (String line in users)
+            {
+                this.loadUser(line.Split(' ')[0], line.Split(' ')[1]);
+            }
         }
     }
 }

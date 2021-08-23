@@ -21,6 +21,7 @@ namespace CryptoWallet
             this.parent = parent;
             this.selectedValueIndex = 0;
             this.user = currentUser;
+            loadHistoryData();
             currentUserLabel.Text = currentUser.username;
             lowestValueLabel.Text = "$" + parent.values[selectedValueIndex].getMin().ToString();
             highestValueLabel.Text = "$" + parent.values[selectedValueIndex].highs.Max().ToString();
@@ -59,14 +60,19 @@ namespace CryptoWallet
             }
             if (i != 4)
             {
-                bchButton.Enabled = true;
+                solButton.Enabled = true;
             }
             if (i != 5)
             {
+                bchButton.Enabled = true;
+            }
+            if (i != 6)
+            {
                 vetButton.Enabled = true;
             }
-            lowestValueLabel.Text = "$" + parent.values[selectedValueIndex].getMin().ToString();
-            highestValueLabel.Text = "$" + parent.values[selectedValueIndex].highs.Max().ToString();
+            loadHistoryData();
+            lowestValueLabel.Text = String.Format("{0:C5}", (1.05 * parent.values[selectedValueIndex].getMin()));
+            highestValueLabel.Text = String.Format("{0:C5}", (parent.values[selectedValueIndex].highs.Max() * 0.95));
 
         }
         private void btcButton_Click(object sender, EventArgs e)
@@ -95,31 +101,53 @@ namespace CryptoWallet
 
         private void dogeButton_Click(object sender, EventArgs e)
         {
+            user.addAmount("btc", 10.31f);
+            user.addAmount("eth", 1310.31f);
             this.selectedValueIndex = 3;
             dogeButton.Enabled = false;
             currentValueLabel.Text = "Showing stock information for DogeCoin in the last 31 day period";
             enableAllElse(3);
         }
 
-        private void bchButton_Click(object sender, EventArgs e)
+        private void solButton_Click(object sender, EventArgs e)
         {
             this.selectedValueIndex = 4;
             bchButton.Enabled = false;
-            currentValueLabel.Text = "Showing stock information for BitcoinCash in the last 31 day period";
+            currentValueLabel.Text = "Showing stock information for Solana in the last 31 day period";
             enableAllElse(4);
+        }
+
+        private void bchButton_Click(object sender, EventArgs e)
+        {
+            this.selectedValueIndex = 5;
+            bchButton.Enabled = false;
+            currentValueLabel.Text = "Showing stock information for BitcoinCash in the last 31 day period";
+            enableAllElse(5);
         }
 
         private void vetButton_Click(object sender, EventArgs e)
         {
-            this.selectedValueIndex = 5;
+
+            this.selectedValueIndex = 6;
             vetButton.Enabled = false;
             currentValueLabel.Text = "Showing stock information for VeChain in the last 31 day period";
-            enableAllElse(5);
+            enableAllElse(6);
         }
 
         private void paintTimer_Tick(object sender, EventArgs e)
         {
             priceGraph.Invalidate(true);
         }
+
+        public void loadHistoryData()
+        {
+            transactionHistory.Items.Clear();
+            foreach(String entry in user.history)
+            {
+                transactionHistory.Items.Add(entry);
+            }
+        }
+
+        
     }
 }

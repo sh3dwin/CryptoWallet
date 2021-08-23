@@ -55,6 +55,7 @@
             // usernameTextBox
             // 
             this.usernameTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.usernameTextBox.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.usernameTextBox.Location = new System.Drawing.Point(271, 162);
             this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.Size = new System.Drawing.Size(265, 20);
@@ -63,10 +64,12 @@
             // passwordTextBox
             // 
             this.passwordTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.passwordTextBox.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.passwordTextBox.Location = new System.Drawing.Point(271, 201);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(265, 20);
             this.passwordTextBox.TabIndex = 2;
+            this.passwordTextBox.UseSystemPasswordChar = true;
             // 
             // usernameLabel
             // 
@@ -91,12 +94,13 @@
             // logInButton
             // 
             this.logInButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.logInButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.logInButton.Location = new System.Drawing.Point(271, 250);
             this.logInButton.Name = "logInButton";
             this.logInButton.Size = new System.Drawing.Size(265, 26);
             this.logInButton.TabIndex = 5;
             this.logInButton.Text = "LOG IN";
-            this.logInButton.UseVisualStyleBackColor = true;
+            this.logInButton.UseVisualStyleBackColor = false;
             this.logInButton.Click += new System.EventHandler(this.logInButton_Click);
             // 
             // accountCreationLinkLabel
