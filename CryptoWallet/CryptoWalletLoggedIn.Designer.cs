@@ -37,7 +37,7 @@
             this.bchButton = new System.Windows.Forms.Button();
             this.vetButton = new System.Windows.Forms.Button();
             this.paintTimer = new System.Windows.Forms.Timer(this.components);
-            this.currentValueLabel = new System.Windows.Forms.Label();
+            this.currentCryptoLabel = new System.Windows.Forms.Label();
             this.currentUserLabel = new System.Windows.Forms.Label();
             this.loggedInLabel = new System.Windows.Forms.Label();
             this.highestValueLabel = new System.Windows.Forms.Label();
@@ -46,6 +46,8 @@
             this.solButton = new System.Windows.Forms.Button();
             this.buyButton = new System.Windows.Forms.Button();
             this.tradeButton = new System.Windows.Forms.Button();
+            this.currentValueLabel = new System.Windows.Forms.Label();
+            this.valueLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.priceGraph)).BeginInit();
             this.SuspendLayout();
             // 
@@ -139,17 +141,17 @@
             this.paintTimer.Interval = 50;
             this.paintTimer.Tick += new System.EventHandler(this.paintTimer_Tick);
             // 
-            // currentValueLabel
+            // currentCryptoLabel
             // 
-            this.currentValueLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.currentValueLabel.AutoSize = true;
-            this.currentValueLabel.BackColor = System.Drawing.Color.Transparent;
-            this.currentValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.currentValueLabel.Location = new System.Drawing.Point(249, 361);
-            this.currentValueLabel.Name = "currentValueLabel";
-            this.currentValueLabel.Size = new System.Drawing.Size(504, 20);
-            this.currentValueLabel.TabIndex = 9;
-            this.currentValueLabel.Text = "Showing stock information for Bitcoin in the last 31 day period";
+            this.currentCryptoLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.currentCryptoLabel.AutoSize = true;
+            this.currentCryptoLabel.BackColor = System.Drawing.Color.Transparent;
+            this.currentCryptoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.currentCryptoLabel.Location = new System.Drawing.Point(301, 361);
+            this.currentCryptoLabel.Name = "currentCryptoLabel";
+            this.currentCryptoLabel.Size = new System.Drawing.Size(429, 16);
+            this.currentCryptoLabel.TabIndex = 9;
+            this.currentCryptoLabel.Text = "Showing stock information for Bitcoin in the last 31 day period";
             // 
             // currentUserLabel
             // 
@@ -219,21 +221,42 @@
             // 
             // buyButton
             // 
-            this.buyButton.Location = new System.Drawing.Point(253, 385);
+            this.buyButton.Location = new System.Drawing.Point(566, 385);
             this.buyButton.Name = "buyButton";
             this.buyButton.Size = new System.Drawing.Size(94, 42);
             this.buyButton.TabIndex = 16;
             this.buyButton.Text = "Buy Crypto";
             this.buyButton.UseVisualStyleBackColor = true;
+            this.buyButton.Click += new System.EventHandler(this.buyButton_Click);
             // 
             // tradeButton
             // 
-            this.tradeButton.Location = new System.Drawing.Point(372, 385);
+            this.tradeButton.Location = new System.Drawing.Point(685, 385);
             this.tradeButton.Name = "tradeButton";
             this.tradeButton.Size = new System.Drawing.Size(94, 42);
             this.tradeButton.TabIndex = 18;
             this.tradeButton.Text = "Trade Crypto";
             this.tradeButton.UseVisualStyleBackColor = true;
+            // 
+            // currentValueLabel
+            // 
+            this.currentValueLabel.AutoSize = true;
+            this.currentValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.currentValueLabel.Location = new System.Drawing.Point(249, 391);
+            this.currentValueLabel.Name = "currentValueLabel";
+            this.currentValueLabel.Size = new System.Drawing.Size(161, 25);
+            this.currentValueLabel.TabIndex = 19;
+            this.currentValueLabel.Text = "Current value:";
+            // 
+            // valueLabel
+            // 
+            this.valueLabel.AutoSize = true;
+            this.valueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.valueLabel.Location = new System.Drawing.Point(405, 391);
+            this.valueLabel.Name = "valueLabel";
+            this.valueLabel.Size = new System.Drawing.Size(136, 25);
+            this.valueLabel.TabIndex = 20;
+            this.valueLabel.Text = "$0000.0000";
             // 
             // CryptoWalletLoggedIn
             // 
@@ -241,6 +264,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.valueLabel);
+            this.Controls.Add(this.currentValueLabel);
             this.Controls.Add(this.tradeButton);
             this.Controls.Add(this.buyButton);
             this.Controls.Add(this.solButton);
@@ -249,7 +274,7 @@
             this.Controls.Add(this.highestValueLabel);
             this.Controls.Add(this.loggedInLabel);
             this.Controls.Add(this.currentUserLabel);
-            this.Controls.Add(this.currentValueLabel);
+            this.Controls.Add(this.currentCryptoLabel);
             this.Controls.Add(this.vetButton);
             this.Controls.Add(this.bchButton);
             this.Controls.Add(this.dogeButton);
@@ -276,7 +301,7 @@
         private System.Windows.Forms.Button bchButton;
         private System.Windows.Forms.Button vetButton;
         private System.Windows.Forms.Timer paintTimer;
-        private System.Windows.Forms.Label currentValueLabel;
+        private System.Windows.Forms.Label currentCryptoLabel;
         private System.Windows.Forms.Label currentUserLabel;
         private System.Windows.Forms.Label loggedInLabel;
         private System.Windows.Forms.Label highestValueLabel;
@@ -285,5 +310,7 @@
         private System.Windows.Forms.Button solButton;
         private System.Windows.Forms.Button buyButton;
         private System.Windows.Forms.Button tradeButton;
+        private System.Windows.Forms.Label currentValueLabel;
+        private System.Windows.Forms.Label valueLabel;
     }
 }

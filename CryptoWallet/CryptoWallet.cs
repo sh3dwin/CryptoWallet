@@ -62,5 +62,20 @@ namespace CryptoWallet
             this.values.Add(new CryptoValue("BCH"));
             this.values.Add(new CryptoValue("VET"));
         }
+
+        public float getCryptoValue(String code)
+        {
+            switch (code)
+            {
+                case "btc": return values[0].currentValue;
+                case "eth": return values[1].currentValue;
+                case "ada": return values[2].currentValue;
+                case "doge": return values[3].currentValue;
+                case "sol": return values[4].currentValue;
+                case "bch": return values[5].currentValue;
+                case "vet": return values[6].currentValue;
+                default: return -1;
+            }
+        }
     }
 }

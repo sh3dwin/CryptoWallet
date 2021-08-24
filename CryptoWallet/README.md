@@ -1,6 +1,4 @@
 ﻿TODO:
-- Add a form for buying crypto values. The user enters the amount of dolars the want to deposit and that
-is transfored into the selected crypto value according to the current price (taken from yfinance).
 - Add a form for converting crypto. Convert from one crypto to another according to current price.
 - Add a display for the current holdings of the user and whether said holdings have increased in value or
 decreased, shown in green or red percentage.

@@ -12,7 +12,7 @@ namespace CryptoWallet
 {
     public partial class CryptoWalletLoggedIn : Form
     {
-        private CryptoWallet parent;
+        public CryptoWallet parent { get; private set; }
         private int selectedValueIndex;
         private User user;
         public CryptoWalletLoggedIn(CryptoWallet parent, User currentUser)
@@ -25,6 +25,8 @@ namespace CryptoWallet
             currentUserLabel.Text = currentUser.username;
             lowestValueLabel.Text = "$" + parent.values[selectedValueIndex].getMin().ToString();
             highestValueLabel.Text = "$" + parent.values[selectedValueIndex].highs.Max().ToString();
+            valueLabel.Text = String.Format("{0:C4}", (parent.values[selectedValueIndex].currentValue));
+            valueLabel.ForeColor = Color.DarkGreen;
         }
 
         private void CryptoWalletLoggedIn_FormClosed(object sender, FormClosedEventArgs e)
@@ -73,20 +75,22 @@ namespace CryptoWallet
             loadHistoryData();
             lowestValueLabel.Text = String.Format("{0:C5}", (1.05 * parent.values[selectedValueIndex].getMin()));
             highestValueLabel.Text = String.Format("{0:C5}", (parent.values[selectedValueIndex].highs.Max() * 0.95));
+            valueLabel.Text = String.Format("{0:C4}", (parent.values[selectedValueIndex].currentValue));
+            valueLabel.ForeColor = Color.DarkGreen;
 
         }
         private void btcButton_Click(object sender, EventArgs e)
         {
             this.selectedValueIndex = 0;
             btcButton.Enabled = false;
-            currentValueLabel.Text = "Showing stock information for Bitcoin in the last 31 day period";
+            currentCryptoLabel.Text = "Showing stock information for Bitcoin in the last 31 day period";
             enableAllElse(0);
         }
         private void ethButton_Click(object sender, EventArgs e)
         {
             this.selectedValueIndex = 1;
             ethButton.Enabled = false;
-            currentValueLabel.Text = "Showing stock information for Ethereum in the last 31 day period";
+            currentCryptoLabel.Text = "Showing stock information for Ethereum in the last 31 day period";
             enableAllElse(1);
             
         }
@@ -95,17 +99,15 @@ namespace CryptoWallet
         {
             this.selectedValueIndex = 2;
             cardanoButton.Enabled = false;
-            currentValueLabel.Text = "Showing stock information for Cardano in the last 31 day period";
+            currentCryptoLabel.Text = "Showing stock information for Cardano in the last 31 day period";
             enableAllElse(2);
         }
 
         private void dogeButton_Click(object sender, EventArgs e)
         {
-            user.addAmount("btc", 10.31f);
-            user.addAmount("eth", 1310.31f);
             this.selectedValueIndex = 3;
             dogeButton.Enabled = false;
-            currentValueLabel.Text = "Showing stock information for DogeCoin in the last 31 day period";
+            currentCryptoLabel.Text = "Showing stock information for DogeCoin in the last 31 day period";
             enableAllElse(3);
         }
 
@@ -113,7 +115,7 @@ namespace CryptoWallet
         {
             this.selectedValueIndex = 4;
             bchButton.Enabled = false;
-            currentValueLabel.Text = "Showing stock information for Solana in the last 31 day period";
+            currentCryptoLabel.Text = "Showing stock information for Solana in the last 31 day period";
             enableAllElse(4);
         }
 
@@ -121,7 +123,7 @@ namespace CryptoWallet
         {
             this.selectedValueIndex = 5;
             bchButton.Enabled = false;
-            currentValueLabel.Text = "Showing stock information for BitcoinCash in the last 31 day period";
+            currentCryptoLabel.Text = "Showing stock information for BitcoinCash in the last 31 day period";
             enableAllElse(5);
         }
 
@@ -130,7 +132,7 @@ namespace CryptoWallet
 
             this.selectedValueIndex = 6;
             vetButton.Enabled = false;
-            currentValueLabel.Text = "Showing stock information for VeChain in the last 31 day period";
+            currentCryptoLabel.Text = "Showing stock information for VeChain in the last 31 day period";
             enableAllElse(6);
         }
 
@@ -148,6 +150,10 @@ namespace CryptoWallet
             }
         }
 
-        
+        private void buyButton_Click(object sender, EventArgs e)
+        {
+            BuyCryptoForm form = new BuyCryptoForm(this, this.user);
+            form.Show();
+        }
     }
 }

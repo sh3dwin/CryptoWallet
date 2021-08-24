@@ -44,6 +44,54 @@ namespace CryptoWallet
                 float.TryParse(lineData[3], out lows[index]);
                 index++;
             }
+            data = System.IO.File.ReadAllLines("..\\data\\valueData.txt");
+            float value = 0;
+            switch (this.code)
+            {
+                case "BTC":
+                    {
+                        float.TryParse(data[0], out value);
+                        this.currentValue = value;
+                        break;
+                    }
+                case "ETH":
+                    {
+                        float.TryParse(data[1], out value);
+                        this.currentValue = value;
+                        break;
+                    }
+                case "ADA":
+                    {
+                        float.TryParse(data[2], out value);
+                        this.currentValue = value;
+                        break;
+                    }
+                case "DOGE":
+                    {
+                        float.TryParse(data[3], out value);
+                        this.currentValue = value;
+                        break;
+                    }
+                case "SOL":
+                    {
+                        float.TryParse(data[4], out value);
+                        this.currentValue = value;
+                        break;
+                    }
+                case "BCH":
+                    {
+                        float.TryParse(data[5], out value);
+                        this.currentValue = value;
+                        break;
+                    }
+                case "VET":
+                    {
+                        float.TryParse(data[6], out value);
+                        this.currentValue = value;
+                        break;
+                    }
+                default: break;
+            }
         }
 
         public void update()
