@@ -237,6 +237,7 @@
             this.tradeButton.TabIndex = 18;
             this.tradeButton.Text = "Trade Crypto";
             this.tradeButton.UseVisualStyleBackColor = true;
+            this.tradeButton.Click += new System.EventHandler(this.tradeButton_Click);
             // 
             // currentValueLabel
             // 

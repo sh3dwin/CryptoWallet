@@ -50,6 +50,15 @@ namespace CryptoWallet
             }
         }
 
+        public void convert(String code1, float amount1, String code2, float amount2)
+        {
+            if(wallet.withdrawAmount(code1, amount1) && wallet.addAmount(code2, amount2))
+            {
+                history.Add(System.DateTime.Now.ToString() + ": Converted " + amount1 + " " + code1.ToUpper() + " to " + amount2 + " " + code2.ToUpper());
+                this.writeData();
+            }
+        }
+
         public async void writeData()
         {
             String info = wallet.btcAmount.ToString() + " " +
@@ -92,6 +101,21 @@ namespace CryptoWallet
                 }
             }
             mutex = false;
+        }
+
+        public float getAmount(String code)
+        {
+            switch (code)
+            {
+                case "btc": return wallet.btcAmount;
+                case "eth": return wallet.ethAmount;
+                case "ada": return wallet.adaAmount;
+                case "doge": return wallet.dogeAmount;
+                case "sol": return wallet.solAmount;
+                case "bch": return wallet.bchAmount;
+                case "vet": return wallet.vetAmount;
+                default: return -1;
+            }
         }
     }
 }

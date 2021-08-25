@@ -17,10 +17,10 @@ namespace CryptoWallet
         private bool previewed;
         private byte selectedAmount;
         private uint timeElapsed = 0;
-        public BuyCryptoForm(CryptoWalletLoggedIn cryptoWallet, User user)
+        public BuyCryptoForm(CryptoWalletLoggedIn cryptoWallet)
         {
             this.parent = cryptoWallet;
-            this.user = user;
+            this.user = cryptoWallet.user;
             this.previewed = false;
             this.selectedAmount = 0;
             this.timeElapsed = 0;

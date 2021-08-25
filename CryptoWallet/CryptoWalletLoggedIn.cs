@@ -14,7 +14,7 @@ namespace CryptoWallet
     {
         public CryptoWallet parent { get; private set; }
         private int selectedValueIndex;
-        private User user;
+        public User user { get; private set; }
         public CryptoWalletLoggedIn(CryptoWallet parent, User currentUser)
         {
             InitializeComponent();
@@ -152,7 +152,13 @@ namespace CryptoWallet
 
         private void buyButton_Click(object sender, EventArgs e)
         {
-            BuyCryptoForm form = new BuyCryptoForm(this, this.user);
+            BuyCryptoForm form = new BuyCryptoForm(this);
+            form.Show();
+        }
+
+        private void tradeButton_Click(object sender, EventArgs e)
+        {
+            ConvertCryptoForm form = new ConvertCryptoForm(this);
             form.Show();
         }
     }

@@ -51,13 +51,29 @@ namespace CryptoWallet
                 default: return false; 
             }
 
-            transactionHistory.Add(amount.ToString() + " " + code + " deposited into the wallet at " + DateTime.Now.ToString("dd-MM-yyyy") + ", Time:" + DateTime.Now.ToString("HH:mm:ss"));
             return true;  
+        }
+
+        public bool withdrawAmount(String code, float amount)
+        {
+            switch (code)
+            {
+                case "btc": { btcAmount -= amount; break; }
+                case "eth": { ethAmount -= amount; break; }
+                case "ada": { adaAmount -= amount; break; }
+                case "doge": { dogeAmount -= amount; break; }
+                case "sol": { solAmount -= amount; break; }
+                case "bch": { bchAmount -= amount; break; }
+                case "vet": { vetAmount -= amount; break; }
+                default: return false;
+            }
+
+            return true;
         }
 
         public void load(String balance)
         {
-            /*String[] amounts = balance.Split(' ');
+            String[] amounts = balance.Split(' ');
             float amount = 0;
             float.TryParse(amounts[0], out amount);
             btcAmount = amount;
@@ -72,7 +88,7 @@ namespace CryptoWallet
             float.TryParse(amounts[5], out amount);
             bchAmount = amount;
             float.TryParse(amounts[6], out amount);
-            vetAmount = amount;*/
+            vetAmount = amount;
         }
 
 

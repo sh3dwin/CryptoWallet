@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConvertCryptoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConvertCryptoForm.Designer.cs">
+      <DependentUpon>ConvertCryptoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CryptoValue.cs" />
     <Compile Include="CryptoWallet.cs">
       <SubType>Form</SubType>
@@ -79,6 +85,9 @@
     <Compile Include="Wallet.cs" />
     <EmbeddedResource Include="BuyCryptoForm.resx">
       <DependentUpon>BuyCryptoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConvertCryptoForm.resx">
+      <DependentUpon>ConvertCryptoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CryptoWallet.resx">
       <DependentUpon>CryptoWallet.cs</DependentUpon>
