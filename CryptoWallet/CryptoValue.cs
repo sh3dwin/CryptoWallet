@@ -20,6 +20,7 @@ namespace CryptoWallet
             this.code = code;
             this.highs = new float[100];
             this.lows = new float[100];
+            this.currentValue = -1;
             this.loadData();
         }
 

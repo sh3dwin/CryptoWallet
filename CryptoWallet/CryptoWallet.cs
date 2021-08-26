@@ -40,6 +40,7 @@ namespace CryptoWallet
                     CryptoWalletLoggedIn form = new CryptoWalletLoggedIn(this, currentUser);
                     form.Show();
                     this.Hide();
+                    this.passwordTextBox.Clear();
                 }
                 else
                 {

@@ -12,16 +12,19 @@ namespace CryptoWallet
 {
     public partial class CryptoWalletLoggedIn : Form
     {
+        public bool loggedOut = false;
         public CryptoWallet parent { get; private set; }
         private int selectedValueIndex;
         public User user { get; private set; }
         public CryptoWalletLoggedIn(CryptoWallet parent, User currentUser)
         {
+            loggedOut = false;
             InitializeComponent();
             this.parent = parent;
             this.selectedValueIndex = 0;
             this.user = currentUser;
             loadHistoryData();
+            updateTotal();
             currentUserLabel.Text = currentUser.username;
             lowestValueLabel.Text = "$" + parent.values[selectedValueIndex].getMin().ToString();
             highestValueLabel.Text = "$" + parent.values[selectedValueIndex].highs.Max().ToString();
@@ -31,7 +34,8 @@ namespace CryptoWallet
 
         private void CryptoWalletLoggedIn_FormClosed(object sender, FormClosedEventArgs e)
         {
-            parent.Show();
+            if(!loggedOut)
+                parent.Close();
         }
 
         private void priceGraph_Paint(object sender, PaintEventArgs e)
@@ -139,6 +143,7 @@ namespace CryptoWallet
         private void paintTimer_Tick(object sender, EventArgs e)
         {
             priceGraph.Invalidate(true);
+            updateTotal();
         }
 
         public void loadHistoryData()
@@ -160,6 +165,32 @@ namespace CryptoWallet
         {
             ConvertCryptoForm form = new ConvertCryptoForm(this);
             form.Show();
+        }
+
+        private void logoutButton_Click(object sender, EventArgs e)
+        {
+            loggedOut = true;
+            parent.Show();
+            this.Close();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            WalletForm form = new WalletForm(this);
+            form.Show();
+        }
+
+        public void updateTotal()
+        {
+            float total = 0;
+            total += parent.getCryptoValue("btc") * user.wallet.btcAmount;
+            total += parent.getCryptoValue("eth") * user.wallet.ethAmount;
+            total += parent.getCryptoValue("ada") * user.wallet.adaAmount;
+            total += parent.getCryptoValue("doge") *user.wallet.dogeAmount;
+            total += parent.getCryptoValue("sol") * user.wallet.solAmount;
+            total += parent.getCryptoValue("bch") * user.wallet.bchAmount;
+            total += parent.getCryptoValue("vet") * user.wallet.vetAmount;
+            totalHoldingsLabel.Text = String.Format("Total holdings: {0:C2}", total);
         }
     }
 }

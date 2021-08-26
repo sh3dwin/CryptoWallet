@@ -48,6 +48,9 @@
             this.tradeButton = new System.Windows.Forms.Button();
             this.currentValueLabel = new System.Windows.Forms.Label();
             this.valueLabel = new System.Windows.Forms.Label();
+            this.logoutButton = new System.Windows.Forms.Button();
+            this.totalHoldingsLabel = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.priceGraph)).BeginInit();
             this.SuspendLayout();
             // 
@@ -259,12 +262,46 @@
             this.valueLabel.TabIndex = 20;
             this.valueLabel.Text = "$0000.0000";
             // 
+            // logoutButton
+            // 
+            this.logoutButton.Location = new System.Drawing.Point(708, 9);
+            this.logoutButton.Name = "logoutButton";
+            this.logoutButton.Size = new System.Drawing.Size(80, 31);
+            this.logoutButton.TabIndex = 21;
+            this.logoutButton.Text = "Log Out";
+            this.logoutButton.UseVisualStyleBackColor = true;
+            this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
+            // 
+            // totalHoldingsLabel
+            // 
+            this.totalHoldingsLabel.AutoSize = true;
+            this.totalHoldingsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalHoldingsLabel.Location = new System.Drawing.Point(9, 40);
+            this.totalHoldingsLabel.Name = "totalHoldingsLabel";
+            this.totalHoldingsLabel.Size = new System.Drawing.Size(111, 16);
+            this.totalHoldingsLabel.TabIndex = 22;
+            this.totalHoldingsLabel.Text = "Total holdings:";
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(197, 42);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(39, 13);
+            this.linkLabel1.TabIndex = 23;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Details";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
             // CryptoWalletLoggedIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.totalHoldingsLabel);
+            this.Controls.Add(this.logoutButton);
             this.Controls.Add(this.valueLabel);
             this.Controls.Add(this.currentValueLabel);
             this.Controls.Add(this.tradeButton);
@@ -313,5 +350,8 @@
         private System.Windows.Forms.Button tradeButton;
         private System.Windows.Forms.Label currentValueLabel;
         private System.Windows.Forms.Label valueLabel;
+        private System.Windows.Forms.Button logoutButton;
+        private System.Windows.Forms.Label totalHoldingsLabel;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }
