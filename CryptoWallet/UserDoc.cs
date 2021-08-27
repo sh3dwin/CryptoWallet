@@ -26,8 +26,12 @@ namespace CryptoWallet
         }
         public async void addUser(String username, String password)
         {
+            if (!System.IO.File.Exists("./userData.txt"))
+            {
+                System.IO.File.Create("./userData.txt").Close();
+            }
             this.users.Add(new User(username, password));
-            System.IO.StreamWriter file = new System.IO.StreamWriter("../data/userData.txt", append: true);
+            System.IO.StreamWriter file = new System.IO.StreamWriter("./userData.txt", append: true);
             await file.WriteLineAsync(username + " " + password);
             file.Close();
         }
@@ -49,7 +53,11 @@ namespace CryptoWallet
 
         public void loadData()
         {
-            String[] users = System.IO.File.ReadAllLines("../data/userData.txt");
+            if (!System.IO.File.Exists("./userData.txt"))
+            {
+                System.IO.File.Create("./userData.txt").Close();
+            }
+            String[] users = System.IO.File.ReadAllLines("./userData.txt");
             foreach (String line in users)
             {
                 this.loadUser(line.Split(' ')[0], line.Split(' ')[1]);

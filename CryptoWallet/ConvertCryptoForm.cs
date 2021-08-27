@@ -96,6 +96,7 @@ namespace CryptoWallet
             float.TryParse(fromTextBox.Text, out amount);
             float toAmount = amount * (parent.parent.getCryptoValue(fromComboBox.Text.ToLower()) / parent.parent.getCryptoValue(toComboBox.Text.ToLower()));
             this.user.convert(fromComboBox.Text.ToLower(), amount, toComboBox.Text.ToLower(), toAmount);
+            this.parent.loadHistoryData();
             this.Close();
         }
 

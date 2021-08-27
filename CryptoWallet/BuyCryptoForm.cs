@@ -85,10 +85,12 @@ namespace CryptoWallet
             if (comboBox1.Text == "")
             {
                 errorProvider1.SetError(comboBox1, "Please select a crypto currency");
+                return;
             }
             if (selectedAmount == 0)
             {
                 errorProvider1.SetError(button3, "Please choose an amount");
+                return;
             }
             if (previewed)
             {

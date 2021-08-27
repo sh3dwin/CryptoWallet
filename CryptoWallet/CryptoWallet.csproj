@@ -65,7 +65,6 @@
     <Compile Include="CryptoWalletLoggedIn.Designer.cs">
       <DependentUpon>CryptoWalletLoggedIn.cs</DependentUpon>
     </Compile>
-    <Compile Include="DisplayObserver.cs" />
     <Compile Include="BuyCryptoForm.cs">
       <SubType>Form</SubType>
     </Compile>

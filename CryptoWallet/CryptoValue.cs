@@ -26,7 +26,7 @@ namespace CryptoWallet
 
         public void loadData()
         {
-            String[] data = System.IO.File.ReadAllLines("..\\data\\data" + this.code + ".txt");
+            String[] data = System.IO.File.ReadAllLines("./data" + this.code + ".txt");
             int index = 0;
             int twoItterations = 0;
             foreach (String line in data)
@@ -45,7 +45,7 @@ namespace CryptoWallet
                 float.TryParse(lineData[3], out lows[index]);
                 index++;
             }
-            data = System.IO.File.ReadAllLines("..\\data\\valueData.txt");
+            data = System.IO.File.ReadAllLines("./valueData.txt");
             float value = 0;
             switch (this.code)
             {

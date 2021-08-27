@@ -75,7 +75,7 @@ namespace CryptoWallet
             if (!mutex)
             {
                 mutex = true;
-                System.IO.StreamWriter file = new System.IO.StreamWriter("../data/" + username + ".txt", append: false);
+                System.IO.StreamWriter file = new System.IO.StreamWriter("./" + username + ".txt", append: false);
                 await file.WriteLineAsync(info);
                 file.Close();
             }
@@ -87,13 +87,13 @@ namespace CryptoWallet
             if (!mutex)
             {
                 mutex = true;
-                if (!System.IO.File.Exists("../data/" + username + ".txt"))
+                if (!System.IO.File.Exists("./" + username + ".txt"))
                 {
-                    System.IO.File.Create("../data/" + username + ".txt").Close();
+                    System.IO.File.Create("./" + username + ".txt").Close();
                     
                 }
                 history.Clear();
-                String[] info = System.IO.File.ReadAllLines("../data/" + username + ".txt");
+                String[] info = System.IO.File.ReadAllLines("./" + username + ".txt");
                 if (info.Length > 2)
                 {
                     wallet.load(info[0]);
