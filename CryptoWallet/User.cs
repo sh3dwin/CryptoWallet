@@ -86,8 +86,13 @@ namespace CryptoWallet
         {
             if (!mutex)
             {
-                history.Clear();
                 mutex = true;
+                if (!System.IO.File.Exists("../data/" + username + ".txt"))
+                {
+                    System.IO.File.Create("../data/" + username + ".txt").Close();
+                    
+                }
+                history.Clear();
                 String[] info = System.IO.File.ReadAllLines("../data/" + username + ".txt");
                 if (info.Length > 2)
                 {
